@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 - Part 4</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+  <h1>
+    Week 1 - Part 4 
+    <span>Diffuse Shading & Point Light</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <label>Shading Model:</label> 
+        <span>Lambertian (Diffuse)</span>
+      </div>
+      <div class="control-group">
+        <label>Light Falloff:</label> 
+        <span>Kepler's Inverse Square</span>
+      </div>
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           Light Intensity: (π, π, π)
+         </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

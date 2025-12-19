@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 - Part 2</title>
+  
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+
+  <h1>
+    Week 1 - Part 2 
+    <span>Uniforms & Camera Basis (Non-square)</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    
+    <canvas id="webgpu-canvas" width="800" height="450"></canvas>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <label>Resolution:</label> 
+        <span>800 x 450</span>
+      </div>
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           (Camera basis computed in JS using MV.js)
+         </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../common/MV.js"></script>
+
+  <script type="module" src="main.js"></script>
+
+</body>
+</html>

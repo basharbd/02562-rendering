@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 - Part 5</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+  <style>
+    /* Specific styles for this part's sliders */
+    input[type="range"] { width: 100%; margin: 5px 0; }
+    .val-container {
+      display: flex;
+      justify-content: space-between;
+      font-weight: normal;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Week 1 - Part 5 
+    <span>Zoom & Gamma UI</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <label>
+          <div class="val-container">
+            <span>Zoom (Camera Constant)</span>
+            <span id="zoomVal">1.00</span>
+          </div>
+          <input id="zoom" type="range" min="0.1" max="3.0" step="0.01" value="1.00">
+        </label>
+        <p style="font-size: 0.8em; color: #666; margin-top: 4px;">
+          (Or use Mouse Wheel on canvas)
+        </p>
+      </div>
+
+      <div class="control-group">
+        <label>
+          <div class="val-container">
+            <span>Gamma Correction</span>
+            <span id="gammaVal">2.20</span>
+          </div>
+          <input id="gamma" type="range" min="1.0" max="3.0" step="0.01" value="2.20">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
