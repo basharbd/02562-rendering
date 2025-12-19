@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 07 - Part 3</title>
+    <link rel="stylesheet" type="text/css" href="../../common/labs.css">
+    <style>
+        .counter-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .counter-btn {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .counter-btn:hover {
+            background: #e0e0e0;
+        }
+        .counter-val {
+            font-weight: bold;
+            font-size: 16px;
+            min-width: 20px;
+            text-align: center;
+        }
+        /* New Button Styles */
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .control-btn {
+            padding: 8px 12px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .control-btn:hover {
+            background-color: #005a9e;
+        }
+        .control-btn.secondary {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        .control-btn.secondary:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Week 7 - Part 3 <span class="subtitle">Path Tracing & Indirect Illumination</span></h1>
+    </div>
+
+    <div id="error-container"></div>
+
+    <div class="container">
+        <canvas id="my-canvas" width="512" height="512">
+            Please use a browser that supports HTML5 canvas.
+        </canvas>
+
+        <div class="controls-panel">
+            <div class="control-group button-stack">
+                <button id="render-toggle" class="control-btn">Start / Stop</button>
+                <button id="render-button" class="control-btn secondary">▶ Render Frame</button>
+                <button id="render-reset" class="control-btn secondary">⟲ Reset</button>
+            </div>
+
+            <div class="control-group">
+                <p id="frame-label" style="font-weight: bold; color: #0078d4; margin: 5px 0 0 0;">Frame: 0</p>
+            </div>
+
+            <div class="control-group">
+                <label for="enable-background" style="cursor: pointer;">
+                    <input type="checkbox" id="enable-background" checked> Enable Background (Blue/Black)
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label for="gamma-slider">Gamma:</label>
+                <input type="range" id="gamma-slider" min="0.1" max="5.0" step="0.1" value="1.0">
+                <span id="gamma-slider-label">1.0</span>
+            </div>
+
+            <div class="control-group">
+                <label>Zoom (Scroll Canvas):</label>
+                <span id="zoom-label" style="font-weight: bold; color: #0078d4;">1.0</span>
+            </div>
+
+            <div class="control-group">
+                <label for="triangle-shader-select">Triangle Shader:</label><br>
+                <select id="triangle-shader-select">
+                    <option value="0">Base color</option>
+                    <option value="1" selected>Lambertian (Path Traced)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Subpixels:</label>
+                <div class="counter-container">
+                    <button id="subpixel-decr" class="counter-btn">-</button>
+                    <span id="subpixel-label" class="counter-val">1</span>
+                    <button id="subpixel-incr" class="counter-btn">+</button>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="control-group">
+                <label>Indirect Illumination:</label>
+                <p style="font-size: 13px; color: #444; line-height: 1.4; margin-top: 5px;">
+                    This part implements unidirectional path tracing. Using <strong>cosine-weighted 
+                    hemisphere sampling</strong> and a <strong>throughput</strong> weighting factor, 
+                    the shader calculates light bouncing off diffuse surfaces, revealing indirect light 
+                    in the corners and shadows of the Cornell Box.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../common/MV.js"></script>
+    <script type="text/javascript" src="../../common/OBJParser_interleaved.js"></script>
+    <script type="text/javascript" src="../../common/Aabb.js"></script>
+    <script type="text/javascript" src="../../common/BspTree_interleaved.js"></script>
+    <script type="text/javascript" src="../../common/TimingHelper.js"></script>
+    
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
