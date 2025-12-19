@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 08 - Part 1</title>
+    <link rel="stylesheet" type="text/css" href="../../common/labs.css">
+    <style>
+        /* Stacked Button Style */
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .control-btn {
+            padding: 8px 12px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .control-btn:hover {
+            background-color: #005a9e;
+        }
+        .control-btn.secondary {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        .control-btn.secondary:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Week 8 - Part 1 <span class="subtitle">Fresnel Reflectance & Transparency</span></h1>
+    </div>
+
+    <div id="error-container"></div>
+
+    <div class="container">
+        <canvas id="my-canvas" width="512" height="512">
+            Please use a browser that supports HTML5 canvas.
+        </canvas>
+
+        <div class="controls-panel">
+            <div class="control-group button-stack">
+                <button id="render-toggle" class="control-btn">Start / Stop</button>
+                <button id="render-button" class="control-btn secondary">▶ Render Frame</button>
+                <button id="render-reset" class="control-btn secondary">⟲ Reset</button>
+            </div>
+
+            <div class="control-group">
+                <p id="frame-label" style="font-weight: bold; color: #0078d4; margin: 5px 0 0 0;">Frame: 0</p>
+            </div>
+
+            <div class="control-group">
+                <label for="enable-background" style="cursor: pointer;">
+                    <input type="checkbox" id="enable-background" checked> Enable Background
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label for="gamma-slider">Gamma:</label>
+                <input type="range" id="gamma-slider" min="0.1" max="5.0" step="0.1" value="1.0">
+                <span id="gamma-slider-label">1.0</span>
+            </div>
+
+            <div class="control-group">
+                <label>Zoom (Scroll Canvas):</label>
+                <span id="zoom-label" style="font-weight: bold; color: #0078d4;">1.0</span>
+            </div>
+
+            <div class="control-group">
+                <label for="triangle-shader-select">Triangle Shader:</label><br>
+                <select id="triangle-shader-select">
+                    <option value="0">Base color</option>
+                    <option value="1" selected>Lambertian</option>
+                </select>
+            </div>
+
+            <hr>
+            
+            <div class="control-group">
+                <label>Fresnel Reflection:</label>
+                <p style="font-size: 13px; color: #444; line-height: 1.4; margin-top: 5px;">
+                    Transparent objects use <strong>Fresnel equations</strong> and <strong>Russian Roulette</strong> 
+                    to stochastically select between reflection and refraction based on the viewing angle.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../common/MV.js"></script>
+    <script type="text/javascript" src="../../common/OBJParser_interleaved.js"></script>
+    <script type="text/javascript" src="../../common/Aabb.js"></script>
+    <script type="text/javascript" src="../../common/BspTree_interleaved.js"></script>
+    <script type="text/javascript" src="../../common/TimingHelper.js"></script>
+    
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
