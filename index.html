@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02562 Rendering Journal - Hub</title>
+    <link rel="stylesheet" type="text/css" href="common/labs.css">
+    <style>
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+        .week-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: #0078d4;
+        }
+        .week-card h3 {
+            margin-top: 0;
+            color: #0078d4;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .part-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .part-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+        .part-list li:last-child {
+            border-bottom: none;
+        }
+        .part-list a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            display: block;
+        }
+        .part-list a:hover {
+            color: #0078d4;
+            padding-left: 5px;
+            transition: all 0.2s ease;
+        }
+        .project-section {
+            background: #f0f7ff;
+            border: 2px solid #0078d4;
+        }
+        .subtitle {
+            font-weight: normal;
+            opacity: 0.7;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Rendering Journal <span class="subtitle">DTU Course 02562</span></h1>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Course Progress</h2>
+            <p>Interactive laboratory journal covering computer graphics, ray tracing, and physically based rendering.</p>
+            
+            <div class="week-grid">
+                
+                <div class="week-card project-section">
+                    <h3>⭐ Final Project</h3>
+                    <ul class="part-list">
+                        <li><a href="project/part1/index.html">Part 1: Depth of Field</a></li>
+                        <li><a href="project/part2/index.html">Part 2: Advanced Features</a></li>
+                        <li><a href="project/Ground%20Truth/reference_image.png" target="_blank">🖼️ View Ground Truth</a></li>
+                        <li><a href="project/report/report.html">📜 Technical Report</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 1: Ray Generation</h3>
+                    <ul class="part-list">
+                        <li><a href="week01/part1/index.html">Part 1: Ray Setup</a></li>
+                        <li><a href="week01/part2/index.html">Part 2: Intersections</a></li>
+                        <li><a href="week01/part3/index.html">Part 3: Depth Buffering</a></li>
+                        <li><a href="week01/part4/index.html">Part 4: Sphere Rays</a></li>
+                        <li><a href="week01/part5/index.html">Part 5: Camera Transform</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 2: Shading Models</h3>
+                    <ul class="part-list">
+                        <li><a href="week02/part1/index.html">Part 1: Lambertian</a></li>
+                        <li><a href="week02/part2/index.html">Part 2: Phong Specular</a></li>
+                        <li><a href="week02/part3/index.html">Part 3: Perfect Mirrors</a></li>
+                        <li><a href="week02/part4/index.html">Part 4: Refraction (Snell)</a></li>
+                        <li><a href="week02/part5/index.html">Part 5: Fresnel Setup</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 3: OBJ Loading</h3>
+                    <ul class="part-list">
+                        <li><a href="week03/part1/index.html">Part 1: OBJ Parser</a></li>
+                        <li><a href="week03/part2/index.html">Part 2: Trimesh Rendering</a></li>
+                        <li><a href="week03/part3/index.html">Part 3: Barycentric Interpolation</a></li>
+                        <li><a href="week03/part4/index.html">Part 4: Vertex Normals</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 4: Shadow Rays</h3>
+                    <ul class="part-list">
+                        <li><a href="week04/index.html">Direct Illumination</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 5: Texturing</h3>
+                    <ul class="part-list">
+                        <li><a href="week05/part1/index.html">Part 1: Mapping Functions</a></li>
+                        <li><a href="week05/part2/index.html">Part 2: Bilinear Filtering</a></li>
+                        <li><a href="week05/part3/index.html">Part 3: Texture Fetching</a></li>
+                        <li><a href="week05/part4/index.html">Part 4: Normal Mapping</a></li>
+                        <li><a href="week05/part5/index.html">Part 5: Mipmapping</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 6: Acceleration</h3>
+                    <ul class="part-list">
+                        <li><a href="week06/part1/index.html">Part 1: AABB Boundaries</a></li>
+                        <li><a href="week06/part2/index.html">Part 2: BSP Tree Construction</a></li>
+                        <li><a href="week06/part3/index.html">Part 3: Traversal Logic</a></li>
+                        <li><a href="week06/part4/index.html">Part 4: Procedural Objects</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 7: Path Tracing</h3>
+                    <ul class="part-list">
+                        <li><a href="week07/part1/index.html">Part 1: Progressive Update</a></li>
+                        <li><a href="week07/part2/index.html">Part 2: Monte Carlo Light</a></li>
+                        <li><a href="week07/part3/index.html">Part 3: Indirect Illumination</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 8: Fresnel & Absorption</h3>
+                    <ul class="part-list">
+                        <li><a href="week08/part1/index.html">Part 1: Physical Fresnel</a></li>
+                        <li><a href="week08/part2/index.html">Part 2: Caustic Sampling</a></li>
+                        <li><a href="week08/part3/index.html">Part 3: Bouguer's Law</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 9: Environment Maps</h3>
+                    <ul class="part-list">
+                        <li><a href="week09/part1/index.html">Part 1: Panoramic UVs</a></li>
+                        <li><a href="week09/part2/index.html">Part 2: HDR Decoding</a></li>
+                        <li><a href="week09/part3/index.html">Part 3: Holdout Shadows</a></li>
+                        <li><a href="week09/part4/index.html">Part 4: Custom HDRI Probe</a></li>
+                    </ul>
+                </div>
+
+                <div class="week-card">
+                    <h3>Week 10: Production</h3>
+                    <ul class="part-list">
+                        <li><a href="week10/index.html">Blender Cycles Renders</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
