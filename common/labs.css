@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 20px 0; /* Top/bottom padding */
+    
+    /* Centering Magic */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header style */
+h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+    display: flex;
+    align-items: baseline;
+    
+    /* Ensure header width matches the scene width (~ canvas + gap + controls) */
+    width: 100%;
+    max-width: 800px;
+}
+
+h1 span {
+    font-weight: normal;
+    font-size: 18px;
+    margin-left: 15px;
+    color: #444;
+}
+
+/* Layout container */
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    
+    /* Ensure container doesn't stretch too wide */
+    width: 100%;
+    max-width: 800px;
+    justify-content: center; /* centers items if they wrap, mostly failsafe */
+}
+
+canvas {
+    background-color: #000;
+    display: block;
+    /* Canvas is 512px fixed width via HTML attributes */
+}
+
+/* The Control Panel Box */
+.controls-panel {
+    background-color: #eff3f6;
+    border: 1px solid #cfd4d9;
+    border-radius: 8px;
+    padding: 20px;
+    
+    /* Width management */
+    flex: 1; /* Takes remaining space */
+    min-width: 200px;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+#error-container {
+    display: none;
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ef9a9a;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 800px; /* Align with other content */
+    box-sizing: border-box;
+}
