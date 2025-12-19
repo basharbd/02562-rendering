@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet 4 Solutions - Radiometry & Photometry</title>
+    
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-left: 5px solid #2980b9;
+            padding-left: 10px;
+        }
+        .solution-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Worksheet 4 Solutions</h1>
+
+    <div class="solution-box">
+        <h2>Part 1: Photon Emission</h2>
+        <p><strong>Given:</strong> Power $P = 25\text{ W}$, Efficiency $\eta = 20\% = 0.2$, Wavelength $\lambda = 500\text{ nm}$.</p>
+        
+        <p>1. Calculate Radiant Flux ($\Phi_e$):</p>
+        $$ \Phi_e = P \cdot \eta = 25\text{ W} \cdot 0.2 = 5\text{ W} $$
+
+        <p>2. Calculate energy of a single photon ($E_p$):</p>
+        $$ E_p = \frac{h \cdot c}{\lambda} $$
+        $$ E_p = \frac{(6.626 \times 10^{-34}\text{ J}\cdot\text{s}) \cdot (3.0 \times 10^8\text{ m/s})}{500 \times 10^{-9}\text{ m}} $$
+        $$ E_p \approx 3.976 \times 10^{-19}\text{ J} $$
+
+        <p>3. Calculate number of photons per second ($N$):</p>
+        $$ N = \frac{\Phi_e}{E_p} = \frac{5}{3.976 \times 10^{-19}} $$
+        <p class="result">Answer: $N \approx 1.26 \times 10^{19} \text{ photons/s}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 2: Light Bulb Radiometry</h2>
+        <p><strong>Given:</strong> $V = 2.4\text{ V}$, $I = 0.7\text{ A}$, Diameter $d = 1\text{ cm} = 0.01\text{ m}$.</p>
+
+        <p>1. Radiant Flux ($\Phi_e$):</p>
+        $$ \Phi_e = V \cdot I = 2.4 \cdot 0.7 = 1.68\text{ W} $$
+
+        <p>2. Radiant Intensity ($I_e$):</p>
+        Assuming isotropic emission ($\Omega = 4\pi\text{ sr}$):
+        $$ I_e = \frac{\Phi_e}{4\pi} = \frac{1.68}{4\pi} \approx 0.134\text{ W/sr} $$
+
+        <p>3. Radiant Exitance ($M_e$):</p>
+        Surface area of sphere $A = \pi d^2 = \pi (0.01)^2 \approx 3.14 \times 10^{-4}\text{ m}^2$.
+        $$ M_e = \frac{\Phi_e}{A} = \frac{1.68}{\pi \cdot 10^{-4}} \approx 5347.6\text{ W/m}^2 $$
+
+        <p>4. Emitted Energy in 5 minutes ($Q$):</p>
+        $$ Q = \Phi_e \cdot t = 1.68\text{ W} \cdot (5 \cdot 60\text{ s}) = 1.68 \cdot 300 $$
+        <p class="result">Answer: $Q = 504\text{ J}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 3: Irradiance at the Eye</h2>
+        <p><strong>Given:</strong> Distance $D = 1\text{ m}$.</p>
+        <p>Using the inverse square law for a point source approximation:</p>
+        $$ E = \frac{I_e}{D^2} $$
+        $$ E = \frac{0.134\text{ W/sr}}{(1\text{ m})^2} $$
+        <p class="result">Answer: $E \approx 0.134\text{ W/m}^2$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 4: Irradiance & Illuminance</h2>
+        <p><strong>Given:</strong> Power $200\text{ W}$, Efficiency $0.2$, Distance $2\text{ m}$, $\lambda = 650\text{ nm}$.</p>
+        
+        <p>1. Radiant Flux:</p>
+        $$ \Phi_e = 200 \cdot 0.2 = 40\text{ W} $$
+        
+        <p>2. Radiant Intensity:</p>
+        $$ I_e = \frac{40}{4\pi} \approx 3.183\text{ W/sr} $$
+
+        <p>3. Irradiance at table ($E_e$):</p>
+        $$ E_e = \frac{I_e}{D^2} = \frac{3.183}{2^2} \approx 0.796\text{ W/m}^2 $$
+
+        <p>4. Illuminance ($E_v$):</p>
+        Formula: $E_v = E_e \cdot 685 \cdot V(\lambda)$. At $650\text{ nm}$, $V(\lambda) = 0.1$.
+        $$ E_v = 0.796 \cdot 685 \cdot 0.1 $$
+        <p class="result">Answer: $E_v \approx 54.5\text{ lux}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 5: Photometry (Bunsen Photometer)</h2>
+        <p><strong>Given:</strong> $I_s = 40\text{ cd}$, $d_s = 0.35\text{ m}$, $d_x = 1.0 - 0.35 = 0.65\text{ m}$.</p>
+        <p>At the position of match, illuminance is equal ($E_s = E_x$):</p>
+        $$ \frac{I_s}{d_s^2} = \frac{I_x}{d_x^2} $$
+        $$ I_x = I_s \left( \frac{d_x}{d_s} \right)^2 $$
+        $$ I_x = 40 \left( \frac{0.65}{0.35} \right)^2 = 40 \cdot (1.857)^2 $$
+        <p class="result">Answer: $I_x \approx 138\text{ cd}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 6: Diffuse Emitter</h2>
+        <p><strong>Given:</strong> Area $10\times10\text{ cm} = 0.01\text{ m}^2$, Radiance $L = 5000\text{ W/(sr m}^2\text{)}$.</p>
+        
+        <p>1. Radiant Exitance ($M_e$):</p>
+        For a Lambertian (diffuse) surface, $M = \pi L$.
+        $$ M_e = \pi \cdot 5000 \approx 15708\text{ W/m}^2 $$
+
+        <p>2. Total Power ($\Phi_e$):</p>
+        $$ \Phi_e = M_e \cdot A = 15708 \cdot 0.01 $$
+        <p class="result">Answer: $\Phi_e \approx 157\text{ W}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 7: Non-Diffuse Emitter</h2>
+        <p><strong>Given:</strong> $L(\theta) = 6000 \cos(\theta)$, Area $A = 0.01\text{ m}^2$.</p>
+
+        <p>1. Radiant Exitance ($M_e$):</p>
+        Integrate over the hemisphere:
+        $$ M_e = \int_{0}^{2\pi} \int_{0}^{\pi/2} L(\theta) \cos(\theta) \sin(\theta) \, d\theta \, d\phi $$
+        $$ M_e = \int_{0}^{2\pi} d\phi \int_{0}^{\pi/2} 6000 \cos^2(\theta) \sin(\theta) \, d\theta $$
+        $$ M_e = 2\pi \cdot 6000 \left[ -\frac{\cos^3(\theta)}{3} \right]_{0}^{\pi/2} $$
+        $$ M_e = 12000\pi \cdot \frac{1}{3} = 4000\pi \approx 12566\text{ W/m}^2 $$
+
+        <p>2. Total Power ($\Phi_e$):</p>
+        $$ \Phi_e = M_e \cdot A = 12566 \cdot 0.01 $$
+        <p class="result">Answer: $\Phi_e \approx 125.7\text{ W}$</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 8: Sun, Earth & Mars</h2>
+        <p><strong>Given:</strong> Sun Power $\Phi = 3.91 \cdot 10^{26}\text{ W}$, Area $A_{\text{sun}} = 6.07 \cdot 10^{18}\text{ m}^2$.<br>
+        $D_{\text{earth}} = 1.5 \cdot 10^{11}\text{ m}$, $D_{\text{mars}} = 2.28 \cdot 10^{11}\text{ m}$.</p>
+
+        <p><strong>1. Radiance Comparison:</strong></p>
+        <p>Radiance ($L$) is conserved along a ray in a vacuum. Therefore, the Radiance of the Sun is <strong>identical</strong> when observed from both planets.</p>
+        <p>Earth is warmest because it is closer, resulting in a larger solid angle $\Omega$ and thus higher Irradiance ($E = L \cdot \Omega$).</p>
+
+        <p><strong>2. Calculate Radiance ($L$):</strong></p>
+        <p>Since the Sun is a diffuse emitter, $M = \pi L$. First, find Exitance $M$:</p>
+        $$ M = \frac{\Phi}{A_{\text{sun}}} = \frac{3.91 \cdot 10^{26}}{6.07 \cdot 10^{18}} \approx 6.44 \cdot 10^{7} \text{ W/m}^2 $$
+        $$ L = \frac{M}{\pi} \approx \frac{6.44 \cdot 10^{7}}{\pi} \approx 2.05 \cdot 10^{7} \text{ W/(sr m}^2) $$
+        <p class="result">Radiance $L \approx 2.05 \cdot 10^{7} \text{ W/(sr m}^2)$ (Same for Earth & Mars)</p>
+
+        <p><strong>3. Solid Angle ($\Omega$):</strong></p>
+        <p>Projected Area of Sun $A_{\text{proj}} = \frac{A_{\text{sun}}}{4} = 1.5175 \cdot 10^{18} \text{ m}^2$.</p>
+        $$ \Omega_{\text{earth}} = \frac{A_{\text{proj}}}{D_{\text{earth}}^2} = \frac{1.5175 \cdot 10^{18}}{(1.5 \cdot 10^{11})^2} \approx 6.74 \cdot 10^{-5} \text{ sr} $$
+        $$ \Omega_{\text{mars}} = \frac{A_{\text{proj}}}{D_{\text{mars}}^2} = \frac{1.5175 \cdot 10^{18}}{(2.28 \cdot 10^{11})^2} \approx 2.92 \cdot 10^{-5} \text{ sr} $$
+
+        <p><strong>4. Energy Received (Irradiance $E$):</strong></p>
+        <p>Assuming Sun at zenith ($\cos \theta = 1$): $E = L \cdot \Omega$.</p>
+        $$ E_{\text{earth}} = 2.05 \cdot 10^{7} \cdot 6.74 \cdot 10^{-5} \approx 1382 \text{ W/m}^2 $$
+        $$ E_{\text{mars}} = 2.05 \cdot 10^{7} \cdot 2.92 \cdot 10^{-5} \approx 599 \text{ W/m}^2 $$
+        <p class="result">Earth: ~1382 W, Mars: ~599 W (on 1x1m surface)</p>
+    </div>
+
+    <div class="solution-box">
+        <h2>Part 9: Cloudy Day & Conical Section</h2>
+        <p><strong>Given:</strong> Uniform Radiance $L = 1000 \text{ W/(m}^2 \text{ sr)}$.</p>
+
+        <p><strong>1. Full Sky Irradiance:</strong></p>
+        <p>For uniform radiance over the hemisphere, $E = \pi L$.</p>
+        $$ E = \pi \cdot 1000 \approx 3141.6 \text{ W/m}^2 $$
+
+        <p><strong>2. Blocked Sky (Conical Section, half-angle $30^\circ$):</strong></p>
+        <p>We integrate radiance over the cone from $\theta = 0$ to $30^\circ$.</p>
+        $$ E = \int_{0}^{2\pi} d\phi \int_{0}^{30^\circ} L \cos \theta \sin \theta \, d\theta $$
+        $$ E = 2\pi L \left[ \frac{\sin^2 \theta}{2} \right]_{0}^{30^\circ} = \pi L \sin^2(30^\circ) $$
+        <p>Since $\sin(30^\circ) = 0.5$:</p>
+        $$ E = \pi \cdot 1000 \cdot (0.5)^2 = 1000\pi \cdot 0.25 $$
+        $$ E = 250\pi \approx 785.4 \text{ W/m}^2 $$
+        <p class="result">Answer: $E \approx 785.4 \text{ W/m}^2$</p>
+    </div>
+
+</body>
+</html>

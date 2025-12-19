@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 05 - Part 1</title>
+    <link rel="stylesheet" type="text/css" href="../../common/labs.css">
+</head>
+<body>
+    <h1>
+        Week 5 - Part 1 <span>Triangle Meshes</span>
+    </h1>
+
+    <div id="error-container"></div>
+
+    <div class="container">
+        
+        <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+        <div class="controls-panel">
+            
+            <div class="control-group">
+                <label>Sphere Material:</label><br>
+                <select id="sphereMenu">
+                    <option value="0">Base Color</option>
+                    <option value="1">Lambertian</option>
+                    <option value="2">Mirror</option>
+                    <option value="3">Refraction</option>
+                    <option value="4">Phong</option>
+                    <option value="5" selected>Glossy</option>
+                    <option value="6">Glossy Mirror</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Mesh Material:</label><br>
+                <select id="materialMenu">
+                    <option value="0">Base Color</option>
+                    <option value="1" selected>Lambertian</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Texture Mode:</label><br>
+                <select id="imageStyle">
+                    <option value="0">Clamp To Edge</option>
+                    <option value="1" selected>Repeat</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Subdivisions:</label><br>
+                <button id="decrease"> - </button>
+                <button id="increase"> + </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../common/OBJParser.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
