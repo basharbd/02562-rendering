@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Worksheet 10 - Rendering in Blender</title>
+    <link rel="stylesheet" type="text/css" href="../../common/labs.css">
+    <style>
+        /* إضافة بعض التنسيقات الإضافية لتناسب عرض الصور من بلندر */
+        .render-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .discussion-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        h2 { margin-top: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Week 10 <span class="subtitle">Production Rendering with Blender (Cycles)</span></h1>
+    </div>
+
+    <div class="container">
+        <div class="main-content" style="width: 100%; max-width: 900px; margin: 0 auto;">
+            
+            <section>
+                <h2>1. Mirror Sphere and Cube</h2>
+                <p>Both objects use <strong>Principled BSDF</strong> with <code>Metallic = 1.0</code> and <code>Roughness = 0.0</code> for perfect mirror reflection. Shadows are cast on a shadow catcher plane integrated into the HDR environment.</p>
+                <img src="mirror_sphere_cube.png" alt="Mirror sphere and cube" class="render-img">
+            </section>
+
+            <section>
+                <h2>2. Metallic Glossy Sphere and Glass Cube</h2>
+                <p><strong>Sphere:</strong> Principled BSDF, Base Color = multicolored, <code>Metallic = 1.0</code>, <code>Roughness = 0.2</code>.</p>
+                <p><strong>Cube:</strong> Principled BSDF, <code>Transmission = 1.0</code>, <code>Roughness = 0.0</code>, <code>IOR = 1.5</code> for clear glass appearance.</p>
+                <img src="metallic_ball_glass_cube.png" alt="Metallic ball and glass cube" class="render-img">
+            </section>
+
+            <section>
+                <h2>3. Custom Scene with Imported Mesh</h2>
+                <p>Imported <code>justElephant.obj</code>. Scaled and positioned in the scene to match the environment lighting perspective.</p>
+                <p><strong>Material:</strong> Principled BSDF with dark blue Base Color, <code>Metallic = 0.0</code>, <code>Roughness ≈ 0.6</code> for a realistic matte/plush appearance.</p>
+                <img src="elephant_scene.png" alt="Elephant scene" class="render-img">
+            </section>
+
+            <section class="discussion-section">
+                <h2>4. Discussion: Cycles (Blender) vs Customizable Renderer (WebGPU)</h2>
+                
+                <h3>Advantages of Cycles in Blender:</h3>
+                <ul>
+                    <li>Very user-friendly: easy scene setup, lighting with HDRIs, and material creation using Principled BSDF.</li>
+                    <li>Production-ready path tracer with excellent global illumination, caustics, and physically based materials out of the box.</li>
+                    <li>Fast preview in Rendered Viewport and many built-in features (shadow catcher, denoising, GPU acceleration).</li>
+                    <li>Huge library of assets, textures, and community support.</li>
+                </ul>
+
+                <h3>Disadvantages of Cycles / What WebGPU enables that Cycles lacks:</h3>
+                <ul>
+                    <li>Cycles is a "black box" , limited ability to modify core rendering algorithms or implement custom shading effects from scratch.</li>
+                    <li>In WebGPU, we have full control over the ray tracing pipeline, shaders, and acceleration structures, allowing experimentation with new techniques (e.g., custom importance sampling, neural rendering).</li>
+                    <li>WebGPU runs in the browser  portable, no installation needed, real-time interaction possible.</li>
+                </ul>
+
+                <h3>Features in Cycles that would be challenging to implement in WebGPU:</h3>
+                <ul>
+                    <li>Robust denoising (OptiX or OpenImageDenoise integration).</li>
+                    <li>Full spectral rendering and complex caustics handling.</li>
+                    <li>Complex volume rendering and subsurface scattering.</li>
+                    <li>Production-level path guiding and many ight sampling optimizations.</li>
+                </ul>
+
+                <p><em>Overall, Cycles is excellent for quick, high-quality production rendering, while WebGPU offers educational value and full algorithmic freedom at the cost of development time.</em></p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
