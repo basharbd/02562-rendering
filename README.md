@@ -60,7 +60,7 @@ python3 -m http.server
 Then open:
 [http://localhost:8000/](https://www.google.com/search?q=http://localhost:8000/)
 
-*WebGPU requires a supported browser (Chrome 113+, Edge, or Firefox Nightly) with WebGPU enabled.*
+*WebGPU requires a supported browser (Chrome , Edge, or Firefox Nightly) with WebGPU enabled.*
 
 ---
 
@@ -74,7 +74,7 @@ Then open:
 
 ### 📄 Report
 
-The project report is included in the submission package (**`1.pdf`**). It follows the required structure: Introduction, Method, Implementation, Results, Discussion, and includes:
+The project report is included in the submission package. It follows the required structure: Introduction, Method, Implementation, Results, Discussion, and includes:
 
 * Link to **Lab Journal**
 * Link to **Project implementation**
