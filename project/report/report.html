@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head style="overflow-y: auto">
+    <a href="../part1/index.html" style="position: absolute; color:white; padding-top: 30px; padding-left: 30px; text-decoration: none;">&larr; Back to Project</a>
+    <title>Depth of Field Report</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        font-family: "Segoe UI", "Arial", sans-serif;
+        color: #e0e0e0;
+        margin: 0;
+        padding: 40px;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+        color: #ffffff;
+        border-bottom: 1px solid #444;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: #4da6ff;
+        margin-top: 30px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+      }
+      p {
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      code {
+        background-color: #333;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-family: "Consolas", monospace;
+        color: #ff9d00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Project Report: Depth of Field in Path Tracing</h1>
+
+    <h2>Introduction</h2>
+    <p>
+      Standard path tracers typically utilize a "pinhole camera" model. While computationally simple, this model yields images with infinite depth of field, where every object in the scene, regardless of distance, ppears perfectly sharp. Real-world physical cameras, however, rely on finite apertures, which introduce optical phenomena such as depth of field and bokeh. 
+    </p>
+    <p>
+      The objective of this project was to implement a <strong>Thin Lens Camera Model</strong> to simulate these physical characteristics. By defining a specific focal plane and aperture size, the renderer can produce images where a subject is isolated in sharp focus while the foreground and background are realistically blurred. This addition significantly enhances the photorealism of the output, moving it away from a "computer-generated" aesthetic toward a photographic quality.
+    </p>
+
+    <h2>Method</h2>
+    <p>
+      The implementation replaces the singular ray origin of the pinhole model with a stochastic sampling approach. Instead of generating all rays from a single point (the eye), we model the lens as a finite disk with a user-defined radius (aperture).
+    </p>
+    <p>
+      The sampling process involves two key steps:
+      <br>1. <strong>Focal Point Calculation:</strong> For a given pixel, a ray is cast from the center of the lens through the image plane to determine a specific point of convergence on the <em>plane of focus</em>.
+      <br>2. <strong>Lens Sampling:</strong> A random point is sampled on the lens disk using concentric disk sampling. The primary ray’s origin is shifted to this sampled point, and its direction is recalculated to intersect the previously determined focal point.
+    </p>
+    <p>
+      Mathematically, this perturbs the ray origin and direction such that objects at the focal distance remain sharp (where rays converge), while objects closer or further away create a "Circle of Confusion," resulting in the desired blur effect.
+    </p>
+
+    <h2>Implementation</h2>
+    <p>
+      The feature was integrated into a WebGPU-based path tracer written in WGSL. The renderer supports a robust feature set, including <strong>Next Event Estimation</strong> (Direct Illumination) and global illumination via indirect bounces.
+    </p>
+    <p>
+      <strong>Key Technical Details:</strong>
+      <br>• <strong>Acceleration:</strong> To ensure performance, the scene geometry (Cornell Box, spheres, meshes) is managed using a BSP Tree (Binary Space Partitioning), allowing for fast ray-triangle intersections.
+      <br>• <strong>Materials:</strong> The path tracer supports diverse BSDFs including Lambertian diffuse, Phong specular, and Dielectric materials (glass). The glass implementation includes <em>Fresnel reflectance</em> and <em>Bouguer’s Law</em> for volumetric absorption.
+      <br>• <strong>Camera Logic:</strong> The depth-of-field logic was implemented directly in the ray generation phase (`get_camera_ray`). This approach introduces minimal computational overhead as it purely modifies the initial state of the ray before traversal begins.
+    </p>
+    <p>
+      <em>Note on features:</em> An attempt was made to implement a post-processing "glare" effect for high-intensity light sources. However, this was ultimately excluded from the final submission as the computational cost outweighed the visual benefit, and it detracted from the physical accuracy of the raw path trace.
+    </p>
+
+    <h2>Results & Discussion</h2>
+    <p>
+      The final implementation successfully renders images with a plausible photographic look. The adjustable aperture and focal distance controls allow for "rack focus" effects, enabling the viewer to direct attention to specific parts of the scene (e.g., focusing on a glass sphere while blurring the background).
+    </p>
+    <p>
+      The transition between sharp and blurred regions is smooth, and the stochastic nature of the path tracer naturally handles the sampling of the aperture, converging to a high-quality soft focus as frame accumulation increases. This project demonstrates that moving beyond the pinhole model is a relatively lightweight but powerful way to increase the realism of a physically based renderer.
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #444; margin: 40px 0;">
+    <p style="text-align: center; color: #888; font-size: 0.9em;">
+        A zip file containing the full source code and scenes is included with this submission.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Part 2</title>
+    <link rel="stylesheet" type="text/css" href="../../common/labs.css">
+    <style>
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            margin-top: 10px;
+            width: fit-content;
+        }
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .slider-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        input[type=range] {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Project Part 2 <span class="subtitle">Indirect Illumination & DoF</span></h1>
+    </div>
+
+    <div class="container">
+        <div class="canvas-wrapper">
+            <canvas id="webgpu-canvas" width="512" height="512">
+                Please use a browser that supports HTML5 canvas.
+            </canvas>
+            
+            <div class="slider-container">
+                <div class="slider-group">
+                    <label for="aperture">Aperture Size</label>
+                    <input type="range" id="aperture" name="aperture" min="0" max="50" step="1" value="25">
+                </div>
+
+                <div class="slider-group">
+                    <label for="focalpoint">Focal Distance</label>
+                    <input type="range" id="focalpoint" name="focalpoint1" min="0" max="50" step="1" value="25">
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="control-group">
+                <a href="../report/report.html" class="button-link" style="display:inline-block; margin-bottom:10px;">📄 View Technical Report</a>
+                <p style="font-size: 13px; color: #666;">
+                    <strong>Features:</strong><br>
+                    Global illumination with indirect lighting.<br>
+                    Depth of field with adjustable aperture and focus.<br>
+                    Transparent materials with absorption (Bouguer's Law).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../common/MV.js"></script>
+    <script type="text/javascript" src="../../common/BspTree_interleaved.js"></script>
+    <script type="text/javascript" src="../../common/Aabb.js"></script>
+    <script type="text/javascript" src="../../common/OBJParser_interleaved.js"></script>
+    
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
