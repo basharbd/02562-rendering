@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2 - Part 4</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+  <h1>
+    Week 2 - Part 4 
+    <span>Phong Reflection</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <label>Sphere Material:</label>
+        <select id="sphereMenu">
+          <option value="0">Base Color</option>
+          <option value="1">Lambertian</option>
+          <option value="2" selected>Phong</option>
+          <option value="3">Mirror</option>
+          <option value="4">Refractive</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Matt Materials:</label>
+        <select id="materialMenu">
+          <option value="0">Base Color</option>
+          <option value="1" selected>Lambertian</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           Phong Specs:<br>
+           Shininess (s): 42<br>
+           Specular (ρs): (0.1, 0.1, 0.1)
+         </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

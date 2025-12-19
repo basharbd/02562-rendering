@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 - Part 2</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+  <h1>
+    Week 3 - Part 2 
+    <span>Texture Mapping (Plane)</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      
+      <div class="control-group">
+        <label>Sphere Material:</label>
+        <select id="sphereMenu">
+          <option value="1">Lambertian</option>
+          <option value="2">Mirror</option>
+          <option value="3">Refraction</option>
+          <option value="4">Phong</option>
+          <option value="5" selected>Glossy</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Plane Material:</label>
+        <select id="materialMenu">
+          <option value="1" selected>Lambertian</option>
+          </select>
+      </div>
+
+      <div class="control-group">
+        <label>Texture:</label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="texToggle" checked>
+          <span>Use Grass Texture</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           Texture scaling: 0.2<br>
+           Mapped via ONB (Tangent/Binormal)
+         </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

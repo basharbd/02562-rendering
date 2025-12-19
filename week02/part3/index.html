@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2 - Part 3</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+  <h1>
+    Week 2 - Part 3 
+    <span>Refraction (Glass Sphere)</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <label>Sphere Material:</label>
+        <select id="sphereMenu">
+          <option value="0">Base Color</option>
+          <option value="1">Lambertian</option>
+          <option value="2">Mirror</option>
+          <option value="3" selected>Refraction (Glass)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Matt Materials:</label>
+        <select id="materialMenu">
+          <option value="0">Base Color</option>
+          <option value="1" selected>Lambertian</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           IoR = 1.5<br>
+           (Zoom with Mouse Wheel)
+         </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

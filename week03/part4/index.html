@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 - Part 4</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+  <style>
+    /* Custom styles for this specific panel */
+    .subdiv-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .subdiv-controls button {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .subdiv-value {
+      font-weight: bold;
+      font-size: 1.1em;
+      min-width: 24px;
+      text-align: center;
+    }
+    .val-display { float: right; font-weight: normal; font-size: 0.9em; color: #555; }
+    input[type=range] { width: 100%; margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <h1>
+    Week 3 - Part 4 
+    <span>Texture Filtering & Aliasing</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      
+      <div class="control-group">
+        <label>Pixel Subdivision:</label>
+        <div class="subdiv-controls">
+          <button id="btnDec">-</button>
+          <span id="subdivDisplay" class="subdiv-value">1</span>
+          <button id="btnInc">+</button>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+
+      <div class="control-group">
+        <label>Texture Magnification: <span id="scaleVal" class="val-display">1.0</span></label>
+        <input type="range" id="texScale" min="1.0" max="10.0" step="0.1" value="1.0">
+        <p style="font-size: 0.8em; color: #666; margin:0;">(Scale Divisor: 1 to 10)</p>
+      </div>
+
+      <div class="control-group">
+        <label>Address Mode:</label>
+        <select id="addrMode">
+          <option value="clamp-to-edge">Clamp to Edge</option>
+          <option value="repeat" selected>Repeat</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Filter Mode:</label>
+        <select id="filterMode">
+          <option value="nearest">Nearest</option>
+          <option value="linear" selected>Linear</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Texture:</label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="texToggle" checked>
+          <span>Enable Texture</span>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+
+      <div class="control-group">
+        <label>Gamma: <span id="gammaVal" class="val-display">2.2</span></label>
+        <input type="range" id="gammaRange" min="1.0" max="3.0" step="0.1" value="2.2">
+      </div>
+
+      <div class="control-group">
+        <label>Sphere Material:</label>
+        <select id="sphereMenu">
+          <option value="0">Base Color</option>
+          <option value="1">Lambertian</option>
+          <option value="5" selected>Glossy</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

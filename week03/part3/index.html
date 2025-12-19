@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 - Part 3</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+  <style>
+    /* Specific styles for the +/- buttons */
+    .subdiv-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .subdiv-controls button {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .subdiv-value {
+      font-weight: bold;
+      font-size: 1.1em;
+      min-width: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Week 3 - Part 3 
+    <span>Anti-Aliasing (Jitter)</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      
+      <div class="control-group">
+        <label>Pixel Subdivision Level:</label>
+        <div class="subdiv-controls">
+          <button id="btnDec">-</button>
+          <span id="subdivDisplay" class="subdiv-value">4</span>
+          <button id="btnInc">+</button>
+        </div>
+        <p style="font-size: 0.8em; color: #666; margin-top:5px;">
+          (Rays per pixel = Level²)
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+
+      <div class="control-group">
+        <label>Sphere Material:</label>
+        <select id="sphereMenu">
+          <option value="1">Lambertian</option>
+          <option value="2">Mirror</option>
+          <option value="3">Refraction</option>
+          <option value="4">Phong</option>
+          <option value="5" selected>Glossy</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Plane Material:</label>
+        <select id="materialMenu">
+          <option value="1" selected>Lambertian</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Texture:</label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="texToggle" checked>
+          <span>Use Grass Texture</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

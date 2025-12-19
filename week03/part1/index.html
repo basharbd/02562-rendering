@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 - Part 1</title>
+  <link rel="stylesheet" href="../../common/labs.css">
+</head>
+<body>
+  <h1>
+    Week 3 - Part 1 
+    <span>Texture Addressing & Filtering</span>
+  </h1>
+
+  <div id="error-container"></div>
+
+  <div class="container">
+    <canvas id="webgpu-canvas" width="512" height="512"></canvas>
+
+    <div class="controls-panel">
+      
+      <div class="control-group">
+        <label>Addressing Mode:</label>
+        <select id="addressmode">
+          <option value="0" selected>Clamp to Edge</option>
+          <option value="1">Repeat</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Filtering Mode:</label>
+        <select id="filtermode">
+          <option value="0" selected>Nearest</option>
+          <option value="1">Linear (Bilinear)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+         <p style="font-size: 0.9em; color: #666; margin:0;">
+           (Manual implementation of sampling)
+         </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
