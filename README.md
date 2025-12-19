@@ -1,11 +1,16 @@
 
+
+
 # 02562 Rendering (DTU) — Lab Journal + Final Project (WebGPU)
 
 This repository contains my **WebGPU-based lab journal** (worksheets) and my final project for DTU 02562.
 
-### 🌐 Live Page
+---
 
+### 🌐 Live Page
 **Lab Journal & Project:** [https://basharbd.github.io/02562-rendering/](https://basharbd.github.io/02562-rendering/)
+
+---
 
 ### 📁 Repository Structure
 
@@ -27,32 +32,21 @@ Each lab part follows the same template:
 * **`main.js`** (WebGPU setup + rendering logic)
 * **`shader.wgsl`** (WGSL shaders)
 
+---
+
 ### ✅ Project: Depth of Field in WebGPU
 
-**Title:** Depth of Field — Stochastic Sampling & Physically Based Materials
+
 
 The project implements a physically based **Thin Lens Camera Model** within a progressive path tracer to simulate realistic depth of field. Unlike the traditional pinhole model, this introduces a finite aperture and focal plane.
 
-* 
-**Thin Lens Camera:** Stochastic aperture sampling to generate realistic bokeh and soft focus.
+* **Thin Lens Camera:** Stochastic aperture sampling to generate realistic bokeh and soft focus.
+* **Path Tracing:** Robust Monte Carlo integrator with Next Event Estimation (NEE) and Russian Roulette.
+* **Advanced Materials:** Dielectric BSDF (Glass) with Fresnel reflectance and Snell's law.
+* **Volumetric Absorption:** Simulation of light attenuation inside glass using **Bouguer’s Law**.
+* **Environment Mapping:** HDR lighting with holdout shadow catchers.
 
-
-* 
-**Path Tracing:** Robust Monte Carlo integrator with Next Event Estimation (NEE) and Russian Roulette.
-
-
-* 
-**Advanced Materials:** Dielectric BSDF (Glass) with Fresnel reflectance and Snell's law.
-
-
-* 
-**Volumetric Absorption:** Simulation of light attenuation inside glass using **Bouguer’s Law**.
-
-
-* 
-**Environment Mapping:** HDR lighting with holdout shadow catchers.
-
-
+---
 
 ### ▶️ How to Run Locally
 
@@ -68,20 +62,21 @@ Then open:
 
 *WebGPU requires a supported browser (Chrome 113+, Edge, or Firefox Nightly) with WebGPU enabled.*
 
+---
+
 ### 🧪 Tested Environment
 
 * **Browser:** Chrome (WebGPU enabled by default)
 * **Platform:** macOS / Windows / Linux
 * **Rendering:** WebGPU + WGSL
 
+---
+
 ### 📄 Report
 
-The project report is included in the submission package. It follows the required structure: Introduction, Method, Implementation, Results, Discussion, and includes:
+The project report is included in the submission package (**`1.pdf`**). It follows the required structure: Introduction, Method, Implementation, Results, Discussion, and includes:
 
-* Link to **Lab Journal** 
-
-
-* Link to **Project implementation** 
-
-
+* Link to **Lab Journal**
+* Link to **Project implementation**
 * Figures placed under the corresponding subsections
+
